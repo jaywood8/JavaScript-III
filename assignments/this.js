@@ -23,7 +23,7 @@ const myObj = {
     }
 }
 
-myObj.logName()
+myObj.logName()//takes "Pat" from its current (implicit) context
 
 
 // Principle 3
