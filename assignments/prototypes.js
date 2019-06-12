@@ -201,16 +201,15 @@ const villainSwordsman = new Villain({
 });
 
 function battle(villain, hero) {
-  if (villain.healthPoints <= 0 || hero.healthPoints <=0) {
-    console.log(`The Villain has ${villain.healthPoints} and the Hero has ${hero.healthPoints}.`) 
-    return "The battle is over!"
-  }  
-    else if(Math.random() < .45) { 
+  while (villain.healthPoints >= 0 && hero.healthPoints >= 0) {
+    if(Math.random() < .45) { 
       villain.spit(hero);
-      console.log(`The Villain has ${villain.healthPoints} and the Hero has ${hero.healthPoints}.`) ;
+      console.log(`The Villain attacked the hero and now the Hero only has ${hero.healthPoints} HP left.`) ;
     } 
     else hero.melee(villain);
-    console.log(`The Villain has ${villain.healthPoints} HP and the Hero has ${hero.healthPoints} HP.`) ;
-}
+    console.log(`The Hero attacked the Villain and now the Villain only has ${villain.healthPoints} HP left.`);
+  }  console.log("while loop ended")
+}  
 
 battle(villainSwordsman, heroSwordsman);
+
